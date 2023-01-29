@@ -16,11 +16,10 @@ class Solution{
         //Your code here
         unordered_set<int> h;
         int ps=0;
+        h.insert(0);
         for(int i=0;i<n;i++){
             ps+=arr[i];
             if(h.find(ps)!=h.end())
-            return 1;
-            if(ps==0)
             return 1;
             h.insert(ps);
         }
