@@ -10,23 +10,21 @@ using namespace std;
 
 class Solution{
 public:
+   
     int maxInstance(string s){
-        map<char,int>m;
-        
-        m['b']=0,m['a']=0,m['l']=0,m['o']=0,m['n']=0;
-        
-        for(auto i :s){
-            m[i]++;
+        map<char,int> m;
+        for(auto x:s){
+            if(x=='a' || x=='b'|| x=='l' || x=='o' || x=='n')
+            m[x]++;
         }
-        if(m['b']<1 || m['a']<1 || m['l']<2 || m['o']<2 || m['n']<1)return 0;
+        if(m.size()<5)return 0;
+        m['l']/=2;
+        m['o']/=2;
         
-        vector<int>trav={m['b'],m['a'],m['n'],(m['l']/2),(m['o']/2)};
         int ans=INT_MAX;
-        
-        for(auto i :trav){
-            ans=min(ans,i);
+        for(auto i:m){
+            ans=min(ans,i.second);
         }
-        
         return ans;
     }
 };
