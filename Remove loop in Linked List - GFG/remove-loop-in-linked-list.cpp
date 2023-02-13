@@ -81,18 +81,15 @@ class Solution
     {
         // code here
         // just remove the loop without losing any nodes
-        bool flag=0;
         Node *s=head,*f=head,*pre=NULL;
         while(f && f->next){
             pre=s;
             s=s->next;
             f=f->next->next;
-            if(s==f){
-            flag=1;
+            if(s==f)
             break;
-            }
         }
-        if(flag){
+        if(s==f){
             f=head;
             while(s!=f){
                 pre=s;
