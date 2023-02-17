@@ -12,19 +12,20 @@ class Solution {
   public:
     long long solve(int n, int k, vector<long long> geek_num) {
         // code here
-    if (n <= k) {
-        return geek_num[n-1];
+    if (n <= k) return geek_num[n-1];
+    long long i=0,j=0,sum=0;
+    while(j<k){
+    sum+=geek_num[j];
+    j++;
     }
-    long long sum = 0;
-    for (int i = 0; i < k; i++) {
-        sum += geek_num[i];
+    while(j<n-1){
+        geek_num.push_back(sum);
+        sum+=sum;
+        sum-=geek_num[i];
+        i++;
+        j++;
     }
-    for (int i = k; i < n; i++) {
-        long long next_num = sum;
-        sum += next_num - geek_num[i%k];
-        geek_num[i%k] = next_num;
-    }
-    return geek_num[(n-1)%k];
+    return sum;
     }
 };
 
