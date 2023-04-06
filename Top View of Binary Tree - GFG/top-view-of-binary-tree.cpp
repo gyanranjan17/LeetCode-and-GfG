@@ -109,7 +109,7 @@ class Solution
             auto p=q.front();
             Node* c=p.first;
             int hd=p.second;
-            if(m[hd]==0)
+            if(m.find(hd)==m.end())
             m[hd]=c->data;
             q.pop();
             if(c->left) q.push({c->left,hd-1});
