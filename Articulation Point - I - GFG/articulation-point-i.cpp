@@ -22,10 +22,11 @@ class Solution {
             // if (it == parent) continue;
             if (!vis[it]) {
                 dfs(it, node, vis, tin, low, mark, adj);
-                low[node] = min(low[node], low[it]);
                 if (low[it] >= tin[node] && parent != -1) {
                     mark[node] = 1;
                 }
+                else
+                low[node] = min(low[node], low[it]);
                 child++;
             }
             else {
