@@ -7,51 +7,40 @@ using namespace std;
 // } Driver Code Ends
 //User function Template for C++
 
-//User function Template for C++
-
 class Solution {
   public:
-    int timer = 1;
-    void dfs(int node, int parent, vector<int> &vis, vector<int> &tin, vector<int> &low,
-             vector<int> &mark, vector<int>adj[]) {
-        vis[node] = 1;
-        tin[node] = low[node] = timer;
-        timer++;
-        int child = 0;
-        for (auto it : adj[node]) {
-            // if (it == parent) continue;
-            if (!vis[it]) {
-                dfs(it, node, vis, tin, low, mark, adj);
-                if (low[it] >= tin[node] && parent != -1) {
-                    mark[node] = 1;
-                }
-                else
-                low[node] = min(low[node], low[it]);
+  int timer=0;
+    void dfs(int node,int parent,vector<int> &mark,vector<int> &low,vector<int> &tin,vector<int>adj[]){
+        low[node]=tin[node]=++timer;
+        int child=0;
+        for(auto x:adj[node]){
+            if(x==parent) continue;
+            if(!tin[x]){
+                dfs(x,node,mark,low,tin,adj);
+                low[node]=min(low[node],low[x]);
+                if(low[x]>=tin[node] && parent!=-1)
+                mark[node]=1;
                 child++;
             }
-            else {
-                low[node] = min(low[node], tin[it]);
+            else{
+                low[node]=min(low[node],tin[x]);
             }
         }
-        if (child > 1 && parent == -1) {
-            mark[node] = 1;
-        }
+        if(child>1 && parent==-1)
+        mark[node]=1;
     }
-public:
-    vector<int> articulationPoints(int n, vector<int>adj[]) {
-        vector<int> vis(n, 0);
-        vector<int> tin(n);
-        vector<int> low(n);
-        vector<int> mark(n, 0);
-        dfs(0, -1, vis, tin, low, mark, adj);
+    vector<int> articulationPoints(int v, vector<int>adj[]) {
+        // Code here
+        vector<int> mark(v,0),low(v),tin(v,0);
+        dfs(0,-1,mark,low,tin,adj);
         vector<int> ans;
-        for (int i = 0; i < n; i++) {
-            if (mark[i] == 1) {
-                ans.push_back(i);
-            }
-        }
-        if (ans.size() == 0) return { -1};
+        for(int i=0;i<v;i++)
+            if(mark[i]==1)
+            ans.push_back(i);
+        if(ans.size()==0)
+        return {-1};
         return ans;
+        
     }
 };
 
