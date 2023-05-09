@@ -13,7 +13,8 @@ class Solution {
                 if(dfs(u,adj,vis,i))
                 return 1;
             }
-            else if (u!=parent) return 1;
+            else if (vis[u] && u!=parent) return 1;
+            
         }
         return 0;
     }
