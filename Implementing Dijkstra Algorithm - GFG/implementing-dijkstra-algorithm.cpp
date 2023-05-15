@@ -11,14 +11,14 @@ class Solution
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
         // Code here
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+        queue<pair<int,int>> pq;
         vector<int> dist(V,1e9);
         dist[S]=0;
         pq.push({0,S});
         
         while(!pq.empty()){
-            int dis=pq.top().first;
-            int node=pq.top().second;
+            int dis=pq.front().first;
+            int node=pq.front().second;
             pq.pop();
             for(auto i:adj[node]){
                 int w=i[1];
