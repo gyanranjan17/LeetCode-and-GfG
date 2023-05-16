@@ -10,43 +10,40 @@ using namespace std;
 
 class Solution {
   public:
-    int shortestPath(vector<vector<int>> &mat, pair<int, int> src,
-                     pair<int, int> des) {
+    int shortestPath(vector<vector<int>> &grid, pair<int, int> source,
+                     pair<int, int> destination) {
         // code here
-        int n=mat.size(),m=mat[0].size();
-        queue<pair<int,int>>q;
-        vector<vector<bool>>vis(n,vector<bool>(m,false));
-        vis[src.first][src.second]=true;
-        q.push({src.first,src.second});
-        vector<int>dir={0,-1,0,1,0};
-        int ans=0;
-        
+        int n=grid.size();
+        int m=grid[0].size();
+        queue<pair<int,int>> q;
+        vector<vector<int>> vis(n,vector<int> (m,0));
+        vis[source.first][source.second]=1;
+        q.push(source);
+        int drow[]={-1,0,1,0};
+        int dcol[]={0,1,0,-1};
+        int count=0;
         while(!q.empty()){
             int sz=q.size();
             
             while(sz--){
-                auto node=q.front();
+                int r=q.front().first;
+                int c=q.front().second;
                 q.pop();
-                int i=node.first;
-                int j=node.second;
-                
-                if(i==des.first && j==des.second)return ans;
-                
-                for(int k=0; k<4; k++){
-                    int x=i+dir[k];
-                    int y=j+dir[k+1];
-                    
-                    if(x>=0 && y>=0 && x<n && y<m && !vis[x][y] && mat[x][y]==1){
-                        vis[x][y]=true;
-                        q.push({x,y});
+                if(r==destination.first && c==destination.second)
+                return count;
+                for(int i=0;i<4;i++){
+                    int nrow=r+drow[i];
+                    int ncol=c+dcol[i];
+                    if(nrow>=0 && nrow<n && ncol>=0 && ncol<m && grid[nrow][ncol]==1 && !vis[nrow][ncol]){
+                        vis[nrow][ncol]=1;
+                        q.push({nrow,ncol});
                     }
                 }
             }
-            ans++;
+            count++;
         }
         return -1;
     }
-
 };
 
 
