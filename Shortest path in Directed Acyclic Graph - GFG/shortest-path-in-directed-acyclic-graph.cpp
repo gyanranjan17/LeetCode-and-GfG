@@ -8,22 +8,36 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-      vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
+     vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
         // code here
-        vector<int>ans(N,10000);
-        ans[0] = 0;
-        for(int i=0;i<M;i++)
-        {
-          ans[edges[i][1]] = min(ans[edges[i][1]],ans[edges[i][0]]+edges[i][2]);
+        vector<vector<int>> adj[N];
+        vector<int> ind(N,0);
+        for(auto x:edges){
+            adj[x[0]].push_back({x[1],x[2]});
+            ind[x[1]]++;
         }
-        for(int i=0;i<N;i++)
-        {
-            if(ans[i]==10000)
-            {
-                ans[i] = -1;
+        vector<int> dist(N,1e9);
+        dist[0]=0;
+        queue<int> q;
+        for(int i:ind){
+            if(i==0) q.push(i);
+        }
+        
+        while(!q.empty()){
+            int u=q.front();
+            q.pop();
+            
+            for(auto i:adj[u]){
+                if(--ind[i[0]]==0)
+                q.push(i[0]);
+                if(dist[i[0]]>dist[u]+i[1])
+                dist[i[0]]=dist[u]+i[1];
             }
         }
-        return ans;
+        for(int i=0;i<N;i++){
+            if(dist[i]==1e9) dist[i]=-1;
+        }
+        return dist;
     }
 };
 
