@@ -18,7 +18,7 @@ public:
                 int nrow=i+d.first;
                 int ncol=j+d.second;
                 char ch=board[i][j];
-                board[i][j]='#';
+                board[i][j]='-1';
                 if(dfs(board,nrow,ncol,word,ind+1, m, n)){
                 board[i][j]=ch;
                 return 1;
