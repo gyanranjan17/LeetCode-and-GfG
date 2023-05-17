@@ -6,14 +6,13 @@ using namespace std;
 class Solution {
   public:
    int timer=0;
-    void dfs(int node,int parent,vector<int> &mark,vector<int> &low,vector<int> &tin,vector<int>adj[],vector<int> &vis){
-        vis[node]=1;
+    void dfs(int node,int parent,vector<int> &mark,vector<int> &low,vector<int> &tin,vector<int>adj[]){
         low[node]=tin[node]=++timer;
         int child=0;
         for(auto x:adj[node]){
             if(x==parent) continue;
             if(!tin[x]){
-                dfs(x,node,mark,low,tin,adj,vis);
+                dfs(x,node,mark,low,tin,adj);
                 low[node]=min(low[node],low[x]);
                 if(low[x]>=tin[node] && parent!=-1)
                 mark[node]=1;
@@ -28,11 +27,10 @@ class Solution {
     }
     vector<int> articulationPoints(int v, vector<int>adj[]) {
         // Code here
-        vector<int> mark(v,0),low(v),tin(v,0),vis(v,0);
-        
+        vector<int> mark(v,0),low(v),tin(v,0);
         for(int i=0;i<v;i++){
-             if(!vis[i])
-             dfs(i,-1,mark,low,tin,adj,vis);
+             if(!tin[i])
+             dfs(i,-1,mark,low,tin,adj);
         }
         vector<int> ans;
         for(int i=0;i<v;i++)
