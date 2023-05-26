@@ -11,7 +11,8 @@ class Solution
     int FindMaxSum(int arr[], int n)
     {
         // Your code here
-        int dp1=0,dp2=arr[0],curr=arr[0];
+        if(n==1) return arr[0];
+        int dp1=0,dp2=arr[0],curr=0;
         for(int i=1;i<n;i++){
             int p=arr[i];
             if(i>1)
