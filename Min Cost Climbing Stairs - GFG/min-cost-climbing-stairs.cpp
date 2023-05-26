@@ -17,9 +17,7 @@ class Solution {
         
         int prev2=0,prev=0;
         for(int i=2;i<=n;i++){
-            int f=prev + cost[i-1];
-            int s=prev2 + cost[i-2];
-            int cur=min(f,s);
+            int cur=min(prev + cost[i-1],prev2 + cost[i-2]);
             prev2=prev;
             prev=cur;
         }
