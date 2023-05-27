@@ -13,7 +13,7 @@ class Solution {
                   maxi=max(maxi,points[n][i]);
               }
           }
-          return dp[n][last]=maxi;
+          return maxi;
       }
       if(dp[n][last]!=-1) return dp[n][last];
       int maxi=0;
