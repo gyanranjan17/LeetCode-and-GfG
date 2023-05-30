@@ -9,43 +9,26 @@ using namespace std;
 
 class Solution{   
 public:
-    // bool f(int i,int sum,vector<int>&arr,vector<vector<int>> &dp){
-    //     if(sum==0) return dp[i][sum]=1;
-    //     if(i==0) return dp[i][sum]=(sum==arr[i]);
-    //     if(dp[i][sum]!=-1) return dp[i][sum];
-    //     int nt=f(i-1,sum,arr,dp);
-    //     int t=0;
-    //     if(sum>=arr[i])                                     
-    //     t=f(i-1,sum-arr[i],arr,dp);
-    //     return dp[i][sum]=(nt | t);
+    bool f(int i,int sum,vector<int>&arr,vector<vector<int>> &dp){
+        if(i<0 ) {
+            if(sum==0) return 1;
+            return 0;
+        }
         
-    // }
+        
+        if(dp[i][sum]!=-1) return dp[i][sum];
+        int nt=f(i-1,sum,arr,dp);
+        int t=0;
+        if(sum>=arr[i])
+        t=f(i-1,sum-arr[i],arr,dp);
+        return dp[i][sum]=(nt | t);
+        
+    }
     
     bool isSubsetSum(vector<int>arr, int sum){
         int n=arr.size();
-        vector<vector<int>> dp(n,vector<int>(sum+1,0));
-        for(int i=0;i<n;i++){
-            dp[i][0]=1;
-        }
-        if(arr[0]<=sum)
-        dp[0][arr[0]]=1;
-        for(int i=1;i<n;i++){
-            for(int j=1;j<sum+1;j++){
-                    int nt=dp[i-1][j];
-                    int t=0;
-                    if(j>=arr[i])                         //    Space optimisation will be done
-                    t=dp[i-1][j-arr[i]];
-                    dp[i][j]=(nt || t);
-                
-            }
-        }
-        // for(int i=0;i<n;i++){
-        //     for(int j=0;j<sum+1;j++){
-        //         cout<<dp[i][j]<<" ";
-        //     }
-        //     cout<<endl;
-        // }
-        return dp[n-1][sum];
+        vector<vector<int>> dp(n+1,vector<int>(sum+1,-1));
+        return f(n-1,sum,arr,dp);
     }
 };
 
