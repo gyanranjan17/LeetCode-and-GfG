@@ -25,7 +25,23 @@ class Solution{
 	{
         // Your code goes here
         vector<vector<int>> dp(n,vector<int> (sum+1,-1));
-        return f(n-1,sum,arr,dp);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<sum+1;j++){
+                if(i==0){
+                    if(arr[i]==0 && j==0) dp[i][j]= 2;
+                    else if(j==0 || arr[0]==j) dp[i][j]= 1;
+                    else dp[i][j]= 0;
+                }
+                else{
+                    int np=dp[i-1][j]%mod;
+                    int p=0;
+                    if(arr[i]<=j)
+                    p=dp[i-1][j-arr[i]]%mod;
+                    dp[i][j]=(np+p)%mod;
+                }
+            }
+        }
+        return dp[n-1][sum];
         
 	}
 	  
