@@ -33,15 +33,10 @@ class Solution{
         S+=arr[i];
         vector<vector<int>> dp(n,vector<int>(S/2+1,0));
         isSubsetSum(arr,dp,n,S/2);
-        int t;
         for(int j=S/2;j>=0;j--)
-        {
-            if(dp[n-1][j]==1){
-            t=j;
-            break;
-            }
-        }
-        return S-t-t;
+            if(dp[n-1][j]==1)
+            return S-j-j;
+       
 	}
 };
 
