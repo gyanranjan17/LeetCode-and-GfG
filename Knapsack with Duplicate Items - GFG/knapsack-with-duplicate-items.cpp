@@ -24,23 +24,24 @@ public:
     int knapSack(int N, int W, int val[], int wt[])
     {
         // code here
-        vector<vector<int>> dp(N,vector<int>(W+1,-1));
+        vector<int> prev(W+1), curr(W+1);
         for(int i=0;i<N;i++){
             for(int j=0;j<W+1;j++){
                 if(i==0){
-                    if(wt[0]<=j) dp[i][j]= (j/wt[0])*val[0];
-                    else dp[i][j]= 0;
+                    if(wt[0]<=j) curr[j]= (j/wt[0])*val[0];
+                    else curr[j]= 0;
                 } 
                 else{
-                    int np=dp[i-1][j];
+                    int np=prev[j];
                     int p=INT_MIN;
                     if(wt[i]<=j)
-                    p=val[i]+dp[i][j-wt[i]];
-                    dp[i][j]=max(np,p);
+                    p=val[i]+curr[j-wt[i]];
+                    curr[j]=max(np,p);
                 }
             }
+            prev=curr;
         }
-        return dp[N-1][W];
+        return prev[W];
     }
 };
 
