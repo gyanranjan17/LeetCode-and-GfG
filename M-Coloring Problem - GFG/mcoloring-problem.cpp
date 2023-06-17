@@ -17,11 +17,11 @@ public:
     bool f(int node,bool graph[101][101],int m,int n,vector<int>&col){
         if(node==n) return 1;
         
-        for(int i=1;i<=m;i++){
+        for(int i=0;i<m;i++){
             if(cancolor(node,i,col,graph,n)){
                 col[node]=i;
                 if(f(node+1,graph,m,n,col)) return 1;
-                col[node]=0;
+                col[node]=-1;
             }
          
         }
