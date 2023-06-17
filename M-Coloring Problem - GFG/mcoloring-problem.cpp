@@ -8,29 +8,29 @@ class Solution{
 public:
     // Function to determine if graph can be coloured with at most M colours such
     // that no two adjacent vertices of graph are coloured with same colour.
-    bool cancol(int node,int color[],bool graph[101][101],int n,int col){
-        for(int i=0;i<n;i++){
-            if(i!=node && graph[i][node]==1 && color[i]==col) return 0;
+    bool cancolor(int node,int i,vector<int> &col,bool graph[101][101],int n){
+        for(int k=0;k<n;k++){
+            if( graph[node][k]==1 && col[k]==i) return 0;
         }
         return 1;
     }
-    bool solve(int node,int color[],bool graph[101][101],int n,int m){
+    bool f(int node,bool graph[101][101],int m,int n,vector<int>&col){
         if(node==n) return 1;
         for(int i=1;i<=m;i++){
-            if(cancol(node,color,graph,n,i)){
-            color[node]=i;
-            if(solve(node+1,color,graph,n,m)) return 1;
-            color[node]=0;
-                
+            if(cancolor(node,i,col,graph,n)){
+                col[node]=i;
+                if(f(node+1,graph,m,n,col)) return 1;
+                col[node]=0;
             }
+         
         }
-        return 0;
+         return 0;
     }
     bool graphColoring(bool graph[101][101], int m, int n) {
         // your code here
-        int color[n]={0};
-        if(solve(0,color,graph,n,m)) return 1;
-        return 0;
+        vector<int> col(n,-1);
+        return f(0,graph,m,n,col);
+        
     }
 };
 
