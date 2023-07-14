@@ -11,27 +11,24 @@ class Solution
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
         // Code here
-        queue<pair<int,int>> pq;
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+        pq.push({0,S});
         vector<int> dist(V,1e9);
         dist[S]=0;
-        pq.push({0,S});
-        
         while(!pq.empty()){
-            int dis=pq.front().first;
-            int node=pq.front().second;
+            int dis=pq.top().first;
+            int node=pq.top().second;
             pq.pop();
-            for(auto i:adj[node]){
-                int w=i[1];
-                int adjnode=i[0];
-                if(dis+w<dist[adjnode]){
-                    dist[adjnode]=dis+w;
-                    pq.push({dist[adjnode],adjnode});
+            for(auto x:adj[node]){
+                int d=x[1];
+                int ad=x[0];
+                if(dis + d<dist[ad]){
+                    dist[ad]=dis+d;
+                    pq.push({dist[ad],ad});
                 }
             }
         }
         return dist;
-        
-        
     }
 };
 
