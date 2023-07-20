@@ -10,26 +10,23 @@ class Solution{
 	vector<int> findMaxGuests(int Entry[], int Exit[], int N)
 	{
 	   // Your code goes here
-	vector<pair<int, char>> v;
-
-    for (int i = 0; i < N; ++i) {
-        v.push_back({Entry[i], 'l'});
-        v.push_back({Exit[i], 'r'});
-    }
-
-    sort(v.begin(), v.end());
-
-    int ans = 0, res = 0, t = -1;
-
-    for (auto& x : v) {
-        if (x.second == 'l') 
+    sort(Entry,Entry+N);
+    sort(Exit,Exit+N);
+    int i=0,j=0,res=0,ans=0,t=-1;
+    while(i<N && j<N){
+        int ti=0;
+        if(Entry[i]<=Exit[j]){
+            ti=Entry[i];
             ans++;
-        else 
+            i++;
+        }
+        else {
             ans--;
-
-        if (ans > res) {
-            res = ans;
-            t = x.first;
+            j++;
+        }
+        if(res<ans){
+            t=ti;
+            res=ans;
         }
     }
 
