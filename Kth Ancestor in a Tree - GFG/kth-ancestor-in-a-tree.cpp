@@ -116,7 +116,8 @@ bool f(Node *root,int node,vector<int> &v){
     if(root->data == node) return 1;
     
     v.push_back(root->data);
-    if((f(root->left,node,v) || f(root->right,node,v))==1) return 1;
+    if(f(root->left,node,v)) return 1;
+    if(f(root->right,node,v)) return 1;
     v.pop_back();
     return 0;
 }
