@@ -113,9 +113,9 @@ struct Node
 // your task is to complete this function
 bool f(Node *root,int node,vector<int> &v){
     if(!root) return 0;
-    v.push_back(root->data);
     if(root->data == node) return 1;
     
+    v.push_back(root->data);
     if((f(root->left,node,v) || f(root->right,node,v))==1) return 1;
     v.pop_back();
     return 0;
@@ -127,7 +127,7 @@ int kthAncestor(Node *root, int k, int node)
     vector<int> v;
     f(root,node,v);
     int n=v.size();
-    if(k>=n) return -1;
-    return v[n-k-1];
+    if(k>n) return -1;
+    return v[n-k];
     
 }
