@@ -9,10 +9,8 @@ class Solution {
   
     int f(int i,int a,int b,vector<vector<int>>& grid,int n,int m, vector<vector<vector<int>>> &dp){
         if(a>=m || a<0 || b<0 || b>=m) return 0;
-        if(i==n-1){ 
-            if(a!=b)
-            return grid[i][a]+grid[i][b];
-            else return grid[i][a];
+        if(i==n){ 
+            return 0;
         }
         if(dp[i][a][b]!=-1) return dp[i][a][b];
         int ans=0;
