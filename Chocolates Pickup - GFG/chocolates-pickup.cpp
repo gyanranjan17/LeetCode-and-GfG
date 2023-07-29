@@ -8,10 +8,7 @@ class Solution {
   public:
   
     int f(int i,int a,int b,vector<vector<int>>& grid,int n,int m, vector<vector<vector<int>>> &dp){
-        if(a>=m || a<0 || b<0 || b>=m) return 0;
-        if(i==n){ 
-            return 0;
-        }
+        if(a>=m || a<0 || b<0 || b>=m || i==n) return 0;
         if(dp[i][a][b]!=-1) return dp[i][a][b];
         int ans=0;
         for(int k=-1;k<=1;k++){
