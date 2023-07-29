@@ -6,40 +6,29 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+  
+    int f(int i,int a,int b,vector<vector<int>>& grid,int n,int m, vector<vector<vector<int>>> &dp){
+        if(a>=m || a<0 || b<0 || b>=m) return -1e9;
+        if(i==n-1){ 
+            if(a!=b)
+            return grid[i][a]+grid[i][b];
+            else return grid[i][a];
+        }
+        if(dp[i][a][b]!=-1) return dp[i][a][b];
+        int ans=0;
+        for(int k=-1;k<=1;k++){
+            for(int l=-1;l<=1;l++){
+                if(a!=b)
+                ans=max(ans,grid[i][a]+grid[i][b]+f(i+1,a+k,b+l,grid,n,m,dp));
+                else ans=max(ans,grid[i][a]+f(i+1,a+k,b+l,grid,n,m,dp));
+            }
+        }
+        return dp[i][a][b]=ans;
+    }
     int solve(int n, int m, vector<vector<int>>& grid) {
         // code here
-        vector<vector<int>> front(m,vector<int>(m,-1));
-        for(int i=n-1;i>=0;i--){
-            vector<vector<int>> cur(m,vector<int>(m,0));
-            for(int j=m-1;j>=0;j--){
-                for(int k=m-1;k>=0;k--){
-    
-                    if(i==n-1){
-                        if(j==k) cur[j][k]= grid[i][j];
-                        else
-                        cur[j][k] =grid[i][j] + grid[i][k];
-                    }
-                    
-                    else{
-                        
-                        for(int a=-1;a<=1;a++){
-                            for(int b=-1;b<=1;b++){
-                                if(j+a>=0 && j+a<m && k+b>=0 && k+b<m){
-                                    if(j==k)
-                                    cur[j][k]=max(cur[j][k],grid[i][j] + front[j+a][k+b]);
-                                    else
-                                    cur[j][k]=max(cur[j][k],grid[i][j] +grid[i][k] + front[j+a][k+b]);
-                                }
-                            }
-                        }
-                    }
-                    // dp[i][j][k]=maxi;
-                    
-                }
-            }
-            front=cur;
-        }
-        return front[0][m-1];
+        vector<vector<vector<int>>> dp(n,vector<vector<int>>(m,vector<int>(m,-1)));
+        return f(0,0,m-1,grid,n,m,dp);
     }
 };
 
