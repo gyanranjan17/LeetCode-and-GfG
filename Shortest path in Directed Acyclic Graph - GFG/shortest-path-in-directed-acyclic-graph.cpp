@@ -10,32 +10,33 @@ class Solution {
   public:
      vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
         // code here
-        vector<vector<int>> adj[N];
-        vector<int> ind(N,0);
+        vector<vector<pair<int, int>>> adj(N);
         for(auto x:edges){
-            adj[x[0]].push_back({x[1],x[2]});
-            ind[x[1]]++;
+            int u=x[0];
+            int v=x[1];
+            int wt=x[2];
+            adj[u].push_back({v,wt});
         }
         vector<int> dist(N,1e9);
         dist[0]=0;
-        queue<int> q;
-        for(int i:ind){
-            if(i==0) q.push(i);
-        }
-        
-        while(!q.empty()){
-            int u=q.front();
-            q.pop();
-            
-            for(auto i:adj[u]){
-                if(--ind[i[0]]==0)
-                q.push(i[0]);
-                if(dist[i[0]]>dist[u]+i[1])
-                dist[i[0]]=dist[u]+i[1];
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> pq;
+        pq.push({0,0});
+        while(!pq.empty()){
+            int node=pq.top().second;
+            int wt=pq.top().first;
+            pq.pop();
+            for(auto x:adj[node]){
+                int nod=x.first;
+                int w=x.second;
+                if(wt+w<dist[nod]){
+                    pq.push({w+wt,nod});
+                    dist[nod]=w+wt;
+                }
             }
+            
         }
-        for(int i=0;i<N;i++){
-            if(dist[i]==1e9) dist[i]=-1;
+        for(auto &x:dist){
+            if(x==1e9) x=-1;
         }
         return dist;
     }
