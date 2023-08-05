@@ -5,25 +5,29 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
   public:
-    vector<int> duplicates(int nums[], int n) {
-        // code here
-        set<int> ans;
-        vector<int> v;
-        int i=0;
-        while(i<n){
-            while(nums[i]!=nums[nums[i]]){
-                swap(nums[i],nums[nums[i]]);
+    vector<int> duplicates(int arr[], int n) {
+        // First check all the values that are
+        // present in an array then go to that
+        // values as indexes and increment by
+        // the size of array
+        for (int i = 0; i < n; i++) {
+            int index = arr[i] % n;
+            arr[index] += n;
+        }
+    
+        // Now check which value exists more
+        // than once by dividing with the size
+        // of array
+        bool flag = false;
+        vector<int> ans;
+        for (int i = 0; i < n; i++) {
+            if ((arr[i] / n) > 1) {
+                ans.push_back(i);
+                flag = true;
             }
-            if(i!=nums[i])
-            ans.insert(nums[i]);
-            i++;
         }
-        if(ans.size()){
-            for(auto it:ans)
-            v.push_back(it);
-            return v;
-        }
-        return {-1};
+        if (!flag) ans.push_back(-1);
+        return ans;
     }
 };
 
