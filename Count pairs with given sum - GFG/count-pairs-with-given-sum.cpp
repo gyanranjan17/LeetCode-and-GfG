@@ -12,7 +12,6 @@ public:
     int getPairsCount(int arr[], int n, int k) {
         // code here
         unordered_map<int,int> mp;
-        mp[0]=0;
         int ans=0;
         for(int i=0;i<n;i++){
             if(mp.find(k-arr[i])!=mp.end()) ans+=mp[k-arr[i]];
