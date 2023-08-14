@@ -2,9 +2,7 @@ class Solution {
 public:
     typedef long long ll;
     int minAbsoluteDifference(vector<int>& nums, int x) {
-        if(x==0) return 0;
         int n = nums.size();
-        
         int ans = 1e9;
         
         set<int> s;
