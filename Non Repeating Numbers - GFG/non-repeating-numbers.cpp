@@ -8,16 +8,26 @@ class Solution
 public:
     vector<int> singleNumber(vector<int> nums) 
     {
-        // Code here.
-        unordered_map<int,int> mp;
-        for(auto x:nums){if(mp.find(x)!=mp.end()) {mp.erase(x);continue;} mp[x]++;}
-        vector<int> a(2);
-        int ind=0;
-        for(auto it:mp){
-            a[ind++]=it.first;
+        int n=nums.size();
+        int XOR=0;
+
+        for(int i=0;i<n;i++){
+           XOR = XOR^nums[i];
         }
-        if(a[0]>a[1]) swap(a[0],a[1]);
-        return a;
+
+        int right_bit= XOR & ~(XOR-1);
+        int x=0,y=0;
+
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]&right_bit){
+               x = x^nums[i];
+            }
+            else y = y^nums[i];
+        }
+
+        if(x < y) return {x,y};
+        else return {y,x};
         
     }
 };
