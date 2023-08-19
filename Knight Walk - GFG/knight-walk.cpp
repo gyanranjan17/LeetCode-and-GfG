@@ -8,15 +8,18 @@ public:
 	int minStepToReachTarget(vector<int>&k, vector<int>&t, int n){
 	    // Code here
 	    vector<vector<int>> vis(n+1,vector<int>(n+1,0));
-	    queue<pair<pair<int,int>,int>> q;
-	    q.push({{k[0],k[1]},0});
+	    queue<pair<int,int>> q;
+	    q.push({k[0],k[1]});
 	    int dr[]={1,1,-1,-1,2,2,-2,-2};
 	    int dc[]={2,-2,2,-2,1,-1,1,-1};
 	    vis[k[0]][k[1]]=1;
+	    int st=-1;
 	    while(!q.empty()){
-	            int r=q.front().first.first;
-	            int c=q.front().first.second;
-	            int st=q.front().second;
+	        int sz=q.size();
+	        st++;
+	        while(sz--){
+	            int r=q.front().first;
+	            int c=q.front().second;
 	            if(t[0]==r && t[1]==c) return st;
 	            q.pop();
 	            for(int i=0;i<8;i++){
@@ -24,9 +27,10 @@ public:
 	                int nc=c+dc[i];
 	                if(nr>0 && nc>0 && nr<=n && nc<=n && !vis[nr][nc]){
 	                    vis[nr][nc]=1;
-	                    q.push({{nr,nc},st+1});
+	                    q.push({nr,nc});
 	                }
 	            }
+	        }
 	    }
 	    return -1;
 	}
