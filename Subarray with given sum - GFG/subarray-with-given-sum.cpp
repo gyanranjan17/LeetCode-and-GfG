@@ -10,7 +10,7 @@ class Solution
     //Function to find a continuous sub-array which adds up to a given number.
     vector<int> subarraySum(vector<int>arr, int n, long long s)
     {
-        vector<int>an;
+        vector<int>ans;
         int r=0, l=0;
         int sum=arr[0];
         // isFound variable is ensuring that such index exist or not
@@ -18,15 +18,15 @@ class Solution
         // two pointer approach
         while(r<n ){
             if(s==0){
-                an.push_back(-1);
-                return  an;
+                ans.push_back(-1);
+                return  ans;
             }
             if(sum==s){
                 // isFound=true; 
                 // break;
-                an.push_back(l+1);
-            an.push_back(r+1);
-            return an;
+                ans.push_back(l+1);
+            ans.push_back(r+1);
+            return ans;
                 
             }
             else if(sum<s){
@@ -44,12 +44,13 @@ class Solution
         //     ans.push_back(r+1);
         //     return ans;
         // }
-        an.push_back(-1);
-        return an;
+        ans.push_back(-1);
+        return ans;
         
         // Your code here
     }
 };
+
 
 
 //{ Driver Code Starts.
