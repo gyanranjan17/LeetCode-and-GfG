@@ -1,19 +1,9 @@
 class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
-        int n=s.size();
-        for(int i=0;i<n/2;i++){
-            bool flag=1;
-            string x=s.substr(0,i+1);
-            for(int j=i+1;j<n;j+=i+1){
-                string y=s.substr(j,i+1);
-                if(x!=y) {
-                    flag=0;
-                    break;
-                }
-            }
-            if(flag) return 1;
-        }
-        return 0;
+        string x=s+s;
+        string y=x.substr(1,x.size()-2);
+        if(y.find(s)!=-1)return true;
+        return false;
     }
 };
