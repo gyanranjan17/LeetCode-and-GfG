@@ -75,9 +75,10 @@ Node *removeDuplicates(Node *head)
             if(prev->data==head->data)
             prev->next=temp;
             else prev=head;
-        }else
+        }
+        else
         prev=head;
-        head=temp;
+        head=head->next;
     }
     return x;
 }
