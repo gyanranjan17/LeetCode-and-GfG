@@ -1,23 +1,19 @@
 class Solution {
 public:
-    int minDeletions(std::string s) {
-        std::unordered_map<char, int> cnt;
-        int deletions = 0;
-        std::unordered_set<int> used_frequencies;
-        
-        for (char c : s) {
-            cnt[c]++;
-        }
-        
-        for (auto& kv : cnt) {
-            int freq = kv.second;
-            while (freq > 0 && used_frequencies.find(freq) != used_frequencies.end()) {
-                freq--;
-                deletions++;
+    int minDeletions(string s) {
+        vector<int> v(26,0);
+        for(auto i:s) v[i-'a']++;
+        sort(v.rbegin(),v.rend());
+        int ans=0;
+        for(int i=1;i<26;i++)
+        {
+            if(v[i]==0) continue;
+            if(v[i-1]<=v[i]){
+                int p=v[i];
+                v[i]=max(0,v[i-1]-1);
+                ans+=p-v[i];   
             }
-            used_frequencies.insert(freq);
         }
-        
-        return deletions;
+        return ans;
     }
 };
