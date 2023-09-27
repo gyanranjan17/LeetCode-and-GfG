@@ -11,15 +11,20 @@ class Solution{
     vector<int> printClosest(int arr[], int brr[], int n, int m, int x) {
         //code here
         int i = 0, j = m-1, res=1e9;
-    
-        while(i < n and j >= 0){
+        vector<int> v(2,-1);
+        while(i < n && j >= 0){
             int curr = arr[i] + brr[j];
-            res = min(res, abs(curr - x));
+            if(res>abs(curr - x)){
+                v[0]=arr[i];
+                v[1]=brr[j];
+                res=abs(curr - x);
+            }
             if(curr < x) i++;
             else if(curr > x) j--;
             else break;
         }
-        return {res, x};
+        // cout<<v[0]<<" "<<v[1]<<endl;
+        return v;
 
     }
 };
