@@ -2,7 +2,7 @@ class MyHashMap {
 public:
     int mapp[1000001];
     MyHashMap() {
-        fill(mapp,mapp+1000000,-1);
+        fill(mapp,mapp+1000001,-1);
     }
     
     void put(int key, int value) {
