@@ -3,10 +3,8 @@ public:
     string shortestBeautifulSubstring(string s, int k) {
         string ans="";
         int i=0,j=0,c=0,len=1e9;
-        pair<int,int> p={-1,-1};
         while(j<s.size()){
             if(s[j]=='1') c++;
-            
             while(c>=k){
                 if(c==k){
                     if(j-i+1<len){
@@ -21,7 +19,6 @@ public:
                 }
                 if(s[i]=='1')
                     c--;
-                
                 i++;
             }
             j++;
