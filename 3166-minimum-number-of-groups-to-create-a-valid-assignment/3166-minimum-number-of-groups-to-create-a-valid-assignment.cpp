@@ -1,29 +1,28 @@
 class Solution {
 public:
-    int isFeasible(unordered_map<int, int> &freq, int groupSize){  
-    int totalGroups = 0, highGroupSize = groupSize + 1;                
-    for(auto [key, fq]:freq){
-        int groupCount = fq / highGroupSize, remainder = fq % highGroupSize;         
-        if(remainder > 0 && remainder < groupSize) {                 
-            int requiredItem = groupSize - remainder;                
-            if(groupCount < requiredItem) { return 0; }   
-            groupCount +=1; 
-            remainder = 0;                                           
+    bool isP(int gs,unordered_map<int,int> &mp,int &ans){
+        int hgs=gs+1,tg=0;
+        for(auto it:mp){
+            int x=it.second;
+            int gc=x/hgs,rem=x%hgs;
+            if(rem>0 && rem<gs){
+                if(gs-rem>gc) return 0;
+                gc=gc+1;
+                rem=0;
+            }
+            tg+=gc + (rem ? 1:0);
         }
-        totalGroups += groupCount + (remainder?1:0);                 
+        ans=tg;
+        return 1;
     }
-    return totalGroups;
-}
-
-int minGroupsForValidAssignment(vector<int>& nums) {
-    unordered_map<int, int> freq;
-    int mn = INT_MAX, ans = nums.size();           
-    for(auto n: nums) { freq[n]++; }               
-    for(auto [k,v]:freq) { mn = min(mn, v); }     
-    for(int groupSize = mn; groupSize >= 1; --groupSize){  
-        int res = isFeasible(freq, groupSize);     
-        if(res) return res;                       
+    int minGroupsForValidAssignment(vector<int>& nums) {
+        unordered_map<int,int> mp;
+        for(auto i:nums) mp[i]++;
+        int gs=INT_MAX,ans=nums.size();
+        for(auto it:mp) gs=min(gs,it.second);
+        for(int i=gs;i>=1;i--){
+            if(isP(i,mp,ans)) return ans;
+        }
+        return ans;
     }
-    return ans;   
-}
 };
