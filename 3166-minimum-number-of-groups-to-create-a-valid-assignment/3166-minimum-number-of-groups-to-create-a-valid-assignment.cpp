@@ -8,9 +8,9 @@ public:
             if(rem>0 && rem<gs){
                 if(gs-rem>gc) return 0;
                 gc=gc+1;
-                rem=0;
             }
-            tg+=gc + (rem ? 1:0);
+            tg+=gc;
+            if(rem==gs) tg+=1;
         }
         ans=tg;
         return 1;
