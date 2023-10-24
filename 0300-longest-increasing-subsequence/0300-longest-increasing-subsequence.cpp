@@ -11,19 +11,21 @@ public:
     //     return dp[i][prev_i+1]=max(nt,t);
     // }
     int lengthOfLIS(vector<int>& nums) {
-        vector<vector<int>> dp(nums.size()+1,vector<int> (nums.size()+1,0));
+        vector<vector<int>> dp(nums.size()+1,vector<int> (nums.size()+1,-1));
         for(int i=nums.size();i>=0;i--){
-            for(int prev=nums.size()-2;prev>=-1;prev--){
+            for(int prev=nums.size()-1;prev>=-1;prev--){
                 if(i==nums.size()) dp[i][prev+1]=0;
+                else if(prev==nums.size()-1) dp[i][prev]=0;
                 else{
                     int nt=dp[i+1][prev+1];
-                    int t=INT_MIN;
+                    int t=0;
                     if(prev==-1 || nums[i]>nums[prev])
                     t=1+dp[i+1][i+1];
                     dp[i][prev+1]=max(nt,t);
                 }
             }
         }
+        
         return dp[0][0];
     }
 };
