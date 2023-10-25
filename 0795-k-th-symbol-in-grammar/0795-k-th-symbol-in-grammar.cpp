@@ -1,16 +1,16 @@
 class Solution {
 public:
     int kthGrammar(int n, int k) {
-        bool fhalf=1;
+        int c=0;
         n=pow(2,n-1);
         while(n!=1){
             n/=2;
             if(k>n){
                 k-=n;
-                fhalf=!fhalf;
+                c++;
             }
         }
-        if(fhalf==1) return 0;
-        return 1;
+        if(c%2) return 1;
+        return 0;
     }
 };
