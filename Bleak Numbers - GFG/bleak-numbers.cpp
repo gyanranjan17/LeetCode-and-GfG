@@ -8,7 +8,7 @@ class Solution
 public:
 	int is_bleak(int n)
 	{
-	    for(int i=max(n-32,1); i<n; i++)
+	    for(int i=max(n-40,1); i<n; i++)
 	        if(i+__builtin_popcount(i)==n) return 0;
 	    return 1;
 	}
