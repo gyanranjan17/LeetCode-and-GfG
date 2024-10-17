@@ -31,6 +31,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0920-uncommon-words-from-two-sentences](https://github.com/gyanranjan17/LeetCode/tree/master/0920-uncommon-words-from-two-sentences) |
 | [2755-extra-characters-in-a-string](https://github.com/gyanranjan17/LeetCode/tree/master/2755-extra-characters-in-a-string) |
 | [2800-minimum-string-length-after-removing-substrings](https://github.com/gyanranjan17/LeetCode/tree/master/2800-minimum-string-length-after-removing-substrings) |
+| [3195-separate-black-and-white-balls](https://github.com/gyanranjan17/LeetCode/tree/master/3195-separate-black-and-white-balls) |
 | [3329-find-the-length-of-the-longest-common-prefix](https://github.com/gyanranjan17/LeetCode/tree/master/3329-find-the-length-of-the-longest-common-prefix) |
 ## Recursion
 |  |
@@ -76,4 +77,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2054-the-number-of-the-smallest-unoccupied-chair](https://github.com/gyanranjan17/LeetCode/tree/master/2054-the-number-of-the-smallest-unoccupied-chair) |
+## Two Pointers
+|  |
+| ------- |
+| [3195-separate-black-and-white-balls](https://github.com/gyanranjan17/LeetCode/tree/master/3195-separate-black-and-white-balls) |
+## Greedy
+|  |
+| ------- |
+| [3195-separate-black-and-white-balls](https://github.com/gyanranjan17/LeetCode/tree/master/3195-separate-black-and-white-balls) |
 <!---LeetCode Topics End-->
