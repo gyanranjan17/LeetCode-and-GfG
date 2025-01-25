@@ -6,6 +6,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/gyanranjan17/LeetCode/tree/master/0051-n-queens) |
 | [0539-minimum-time-difference](https://github.com/gyanranjan17/LeetCode/tree/master/0539-minimum-time-difference) |
 | [1803-average-waiting-time](https://github.com/gyanranjan17/LeetCode/tree/master/1803-average-waiting-time) |
 | [2006-find-the-student-that-will-replace-the-chalk](https://github.com/gyanranjan17/LeetCode/tree/master/2006-find-the-student-that-will-replace-the-chalk) |
@@ -98,4 +99,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2646-kth-largest-sum-in-a-binary-tree](https://github.com/gyanranjan17/LeetCode/tree/master/2646-kth-largest-sum-in-a-binary-tree) |
+## Backtracking
+|  |
+| ------- |
+| [0051-n-queens](https://github.com/gyanranjan17/LeetCode/tree/master/0051-n-queens) |
 <!---LeetCode Topics End-->
