@@ -11,6 +11,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1803-average-waiting-time](https://github.com/gyanranjan17/LeetCode/tree/master/1803-average-waiting-time) |
 | [2006-find-the-student-that-will-replace-the-chalk](https://github.com/gyanranjan17/LeetCode/tree/master/2006-find-the-student-that-will-replace-the-chalk) |
 | [2054-the-number-of-the-smallest-unoccupied-chair](https://github.com/gyanranjan17/LeetCode/tree/master/2054-the-number-of-the-smallest-unoccupied-chair) |
+| [2249-count-the-hidden-sequences](https://github.com/gyanranjan17/LeetCode/tree/master/2249-count-the-hidden-sequences) |
 | [2552-maximum-sum-of-distinct-subarrays-with-length-k](https://github.com/gyanranjan17/LeetCode/tree/master/2552-maximum-sum-of-distinct-subarrays-with-length-k) |
 | [2755-extra-characters-in-a-string](https://github.com/gyanranjan17/LeetCode/tree/master/2755-extra-characters-in-a-string) |
 | [3329-find-the-length-of-the-longest-common-prefix](https://github.com/gyanranjan17/LeetCode/tree/master/3329-find-the-length-of-the-longest-common-prefix) |
@@ -47,6 +48,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2006-find-the-student-that-will-replace-the-chalk](https://github.com/gyanranjan17/LeetCode/tree/master/2006-find-the-student-that-will-replace-the-chalk) |
+| [2249-count-the-hidden-sequences](https://github.com/gyanranjan17/LeetCode/tree/master/2249-count-the-hidden-sequences) |
 ## Sorting
 |  |
 | ------- |
