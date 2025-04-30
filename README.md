@@ -8,6 +8,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0051-n-queens](https://github.com/gyanranjan17/LeetCode/tree/master/0051-n-queens) |
 | [0539-minimum-time-difference](https://github.com/gyanranjan17/LeetCode/tree/master/0539-minimum-time-difference) |
+| [1421-find-numbers-with-even-number-of-digits](https://github.com/gyanranjan17/LeetCode/tree/master/1421-find-numbers-with-even-number-of-digits) |
 | [1803-average-waiting-time](https://github.com/gyanranjan17/LeetCode/tree/master/1803-average-waiting-time) |
 | [2006-find-the-student-that-will-replace-the-chalk](https://github.com/gyanranjan17/LeetCode/tree/master/2006-find-the-student-that-will-replace-the-chalk) |
 | [2054-the-number-of-the-smallest-unoccupied-chair](https://github.com/gyanranjan17/LeetCode/tree/master/2054-the-number-of-the-smallest-unoccupied-chair) |
@@ -27,6 +28,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0273-integer-to-english-words](https://github.com/gyanranjan17/LeetCode/tree/master/0273-integer-to-english-words) |
 | [0539-minimum-time-difference](https://github.com/gyanranjan17/LeetCode/tree/master/0539-minimum-time-difference) |
+| [1421-find-numbers-with-even-number-of-digits](https://github.com/gyanranjan17/LeetCode/tree/master/1421-find-numbers-with-even-number-of-digits) |
 ## String
 |  |
 | ------- |
