@@ -75,6 +75,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2755-extra-characters-in-a-string](https://github.com/gyanranjan17/LeetCode/tree/master/2755-extra-characters-in-a-string) |
+| [2882-ways-to-express-an-integer-as-sum-of-powers](https://github.com/gyanranjan17/LeetCode/tree/master/2882-ways-to-express-an-integer-as-sum-of-powers) |
 ## Trie
 |  |
 | ------- |
