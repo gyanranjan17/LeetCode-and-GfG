@@ -7,6 +7,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/gyanranjan17/LeetCode/tree/master/0036-valid-sudoku) |
+| [0037-sudoku-solver](https://github.com/gyanranjan17/LeetCode/tree/master/0037-sudoku-solver) |
 | [0051-n-queens](https://github.com/gyanranjan17/LeetCode/tree/master/0051-n-queens) |
 | [0539-minimum-time-difference](https://github.com/gyanranjan17/LeetCode/tree/master/0539-minimum-time-difference) |
 | [1421-find-numbers-with-even-number-of-digits](https://github.com/gyanranjan17/LeetCode/tree/master/1421-find-numbers-with-even-number-of-digits) |
@@ -65,6 +66,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/gyanranjan17/LeetCode/tree/master/0036-valid-sudoku) |
+| [0037-sudoku-solver](https://github.com/gyanranjan17/LeetCode/tree/master/0037-sudoku-solver) |
 | [0920-uncommon-words-from-two-sentences](https://github.com/gyanranjan17/LeetCode/tree/master/0920-uncommon-words-from-two-sentences) |
 | [2054-the-number-of-the-smallest-unoccupied-chair](https://github.com/gyanranjan17/LeetCode/tree/master/2054-the-number-of-the-smallest-unoccupied-chair) |
 | [2552-maximum-sum-of-distinct-subarrays-with-length-k](https://github.com/gyanranjan17/LeetCode/tree/master/2552-maximum-sum-of-distinct-subarrays-with-length-k) |
@@ -115,6 +117,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Backtracking
 |  |
 | ------- |
+| [0037-sudoku-solver](https://github.com/gyanranjan17/LeetCode/tree/master/0037-sudoku-solver) |
 | [0051-n-queens](https://github.com/gyanranjan17/LeetCode/tree/master/0051-n-queens) |
 ## Sliding Window
 |  |
@@ -133,5 +136,6 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0036-valid-sudoku](https://github.com/gyanranjan17/LeetCode/tree/master/0036-valid-sudoku) |
+| [0037-sudoku-solver](https://github.com/gyanranjan17/LeetCode/tree/master/0037-sudoku-solver) |
 | [3461-find-the-minimum-area-to-cover-all-ones-i](https://github.com/gyanranjan17/LeetCode/tree/master/3461-find-the-minimum-area-to-cover-all-ones-i) |
 <!---LeetCode Topics End-->
